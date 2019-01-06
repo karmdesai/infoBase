@@ -8,4 +8,3 @@ The info-base.db file contains 6 stock accounts which can be recalled by default
 Below is the information for the stock accounts:
 ![alt text](https://github.com/karmdesai/info-base/blob/master/.idea/stock-accounts.png)
 
-If you'd like to view the info-base.db file, I recommend using DB Browser for SQLite: https://sqlitebrowser.org/
