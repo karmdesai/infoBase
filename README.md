@@ -1,4 +1,4 @@
-# info-base
+# infoBase
 This is a project I did to learn SQLite3 and practice Python. It allows the user to input their personal information into a local database, which can later be recalled using a username and password.
 
 
