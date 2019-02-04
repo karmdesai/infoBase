@@ -1,5 +1,5 @@
 # infoBase
-This is a project I did to learn SQLite3 and practice Python. It allows a manager to to input their employee's personal information into a local database, which can later be recalled using a username and password.
+This is a project I did to learn SQLite3 and practice Python. It allows a user to input their personal information into a local database, which can later be recalled using a username and password.
 
 
 
