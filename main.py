@@ -5,12 +5,12 @@ import time
 conn = sqlite3.connect('info_base.db')
 cur = conn.cursor()
 
-#Create the table
+# Create the table
 cur.execute('''CREATE TABLE IF NOT EXISTS userInfo (username, password, first name, last name, 
             email, phone number, age, FaceBook, Twitter, GitHub)''')
 conn.commit()
 
-#Welcome the user, find out what they what they want to do with info-base
+# Welcome the user, find out what they what they want to do with info-base
 def welcome():
     global choice
 
@@ -25,7 +25,7 @@ def welcome():
     else:
         print("Ok, let's view an existing file!")
 
-#Use this function to collect information regarding a new user
+# Use this function to collect information regarding a new user
 def collect():
     print('''Ok, let's get started with your file. Answer the questions that come up as you would like them to appear 
         on your file. \nEnter 'N/A' if you don't want to answer the question.\n''')
@@ -41,7 +41,7 @@ def collect():
         time.sleep(5)
         sys.exit()
 
-    #Ask for a password from the user and ask them to also confirm it
+    # Ask for a password from the user and ask them to also confirm it
     userPass = input(f"Enter a password for the account: {userName}")
     passConfirm = input("Re-enter the password to confirm...\n")
 
@@ -50,7 +50,7 @@ def collect():
         userPass = input(f"Enter a password for the account: {userName}. Remember it - it cannot be reset!")
         passConfirm = input("Re-enter the password to confirm...")
 
-    #Asks for and stores all required input
+    # Asks for and stores all required input
     print(f"Got it! @{userName} - let's continue with the rest of your information!\n")
     firstName = input("What is your first name?")
     lastName = input("What is your last name?\n")
@@ -62,7 +62,7 @@ def collect():
 
     phoneNo = input("What is your phone number? Integers only - no dashes or spaces!\n")
 
-    while True and phoneNo != 'N/A':
+    while phoneNo != 'N/A':
         try:
             int(phoneNo)
         except ValueError:
@@ -73,7 +73,7 @@ def collect():
 
     age = input("What is your age?\n")
 
-    while True and age != 'N/A':
+    while age != 'N/A':
         try:
             int(age)
         except ValueError:
@@ -90,7 +90,7 @@ def collect():
 
     return (userName, userPass, firstName, lastName, eMail, phoneNo, age, faceBook, twitter, gitHub)
 
-#Use this function to gather an existing user's data
+# Use this function to gather an existing user's data
 def gather ():
     global userQuery, queryData
 
@@ -105,7 +105,7 @@ def gather ():
         time.sleep(3)
         sys.exit()
 
-    #Ask for the user's password and ensure that it is correct
+    # Ask for the user's password and ensure that it is correct
     tryPass = input(f'Enter the password for the user: @{userQuery}...\n')
 
     cur.execute('SELECT password FROM userInfo WHERE username = (?)', (userQuery,))
@@ -120,7 +120,7 @@ def gather ():
 
     queryData = cur.fetchall()
 
-#Create a user using the tuple returned by the ask.create() function
+# Create a user using the tuple returned by the ask.create() function
 def create_user():
     cur.execute('INSERT INTO userInfo VALUES (?,?,?,?,?,?,?,?,?,?)', collect())
     conn.commit()
@@ -128,7 +128,7 @@ def create_user():
 def show_data():
     gather()
 
-    #Display all the user's data, line by line
+    # Display all the user's data, line by line
     print(f'Displaying your data, ...@{userQuery}\n')
     time.sleep(1)
 
@@ -153,28 +153,3 @@ else:
     print('An unknown error occurred... \nAbort...')
     time.sleep(3)
     sys.exit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
