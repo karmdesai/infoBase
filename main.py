@@ -2,7 +2,7 @@ import sqlite3
 import sys
 import time
 
-conn = sqlite3.connect('info_base.db')
+conn = sqlite3.connect('assets/infoBase.db')
 cur = conn.cursor()
 
 # Create the table
